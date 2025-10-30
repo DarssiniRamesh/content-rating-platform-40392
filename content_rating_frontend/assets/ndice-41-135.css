@@ -1,0 +1,283 @@
+:root{
+  /* Color tokens tuned for Ocean Professional theme backdrop + Figma reference */
+  --bg:#3a3a40;            /* page background */
+  --surface:#47474d;       /* card outer */
+  --surface-2:#4d4d53;     /* card inner */
+  --chip:#ffffff;          /* banner chip */
+  --chip-text:#111827;
+  --text:#ffffff;
+  --text-strong:#ffffff;
+  --text-dim:rgba(255,255,255,0.88);
+  --muted:rgba(255,255,255,0.72);
+  --divider:rgba(255,255,255,0.20);
+  --accent:#FFD400;        /* yellow CTA like screenshot */
+  --accent-text:#0b0b0b;
+
+  /* Type scale (kept fluid but capped to keep proportions) */
+  --fz-xs: clamp(11px, 0.68vw, 12px);
+  --fz-sm: clamp(13px, 0.85vw, 14px);
+  --fz-md: clamp(15px, 1vw, 16px);
+  --fz-lg: clamp(18px, 1.25vw, 20px);
+  --fz-xl: clamp(24px, 2vw, 28px);
+
+  /* Radii + spacing */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+
+  /* Container width */
+  --container-max: 1008px;
+  --container-pad: 24px;
+
+  /* Focus outline */
+  --focus: 0 0 0 3px rgba(255,212,0,0.55);
+}
+
+/* Global reset and typography */
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", sans-serif;
+  line-height:1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* Screen wrapper */
+.screen{
+  max-width: var(--container-max);
+  margin: 40px auto 80px;
+  padding: var(--container-pad);
+}
+
+/* Page Title */
+.page-title{
+  margin: 0 0 18px 0;
+  text-align:center;
+  font-weight: 800;
+  font-size: var(--fz-xl);
+  line-height: 1.12;
+  letter-spacing: 0.2px;
+  filter: saturate(0.98);
+}
+
+/* Banner (Frame 1685) */
+.header-banner{
+  display:flex;
+  align-items: center;
+  gap: 18px;
+  background:#404046;
+  border-radius: var(--r-lg);
+  padding: 18px 20px;
+  box-shadow:
+    0 2px 0 rgba(0,0,0,0.22) inset,
+    0 1px 0 rgba(255,255,255,0.06);
+  margin-bottom: 24px;
+  min-height: 82px;
+}
+
+/* Decorative icon boxes */
+.alert-icon{
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-md);
+  background:
+    radial-gradient(circle at 50% 34%, #fff 0 14%, transparent 15% 100%),
+    linear-gradient(#f5a100,#ffd54d);
+  box-shadow:
+    0 0 0 2px rgba(0,0,0,.25) inset,
+    0 4px 10px rgba(0,0,0,.25);
+  border: 1px solid rgba(0,0,0,0.22);
+  flex:0 0 auto;
+}
+
+/* Banner text group */
+.banner-text-wrap{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  background:#4a4a50;
+  border-radius: var(--r-md);
+  padding: 12px 14px;
+  flex:1 1 auto;
+  min-height: 44px;
+}
+
+.important-chip{
+  background: var(--chip);
+  color: var(--chip-text);
+  font-weight: 800;
+  font-size: var(--fz-xs);
+  padding: 6px 10px;
+  border-radius: 8px;
+  line-height:1;
+  white-space:nowrap;
+}
+
+.banner-text{
+  margin:0;
+  color: var(--muted);
+  font-size: var(--fz-sm);
+  line-height: 1.35;
+  letter-spacing: 0.1px;
+}
+
+/* Sections */
+.proto-section{
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  padding: 22px;
+  margin: 16px 0;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset;
+}
+
+.section-inner{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.05)) , var(--surface-2);
+  border-radius: var(--r-md);
+  padding: 18px 18px 12px;
+  min-height: 140px;
+}
+
+/* Section title */
+.proto-title{
+  margin:0 0 8px 0;
+  font-size: var(--fz-lg);
+  font-weight: 800;
+  color: var(--text-strong);
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+}
+
+.proto-content{
+  display:flex;
+  gap: 20px;
+  align-items:flex-start;
+  min-height: 120px;
+}
+
+.proto-text{
+  flex:1 1 auto;
+  color: var(--text-dim);
+  font-size: var(--fz-sm);
+  line-height: 1.5;
+}
+
+.block{
+  margin: 8px 0 10px;
+}
+
+/* CTA cluster on right */
+.proto-cta{
+  flex:0 0 280px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:10px;
+}
+
+/* Button */
+.cta-btn{
+  width: 240px;
+  min-height: 48px;
+  background: var(--accent);
+  color: var(--accent-text);
+  border: none;
+  border-radius: var(--r-md);
+  font-weight: 900;
+  font-size: var(--fz-md);
+  letter-spacing: 0.2px;
+  cursor:pointer;
+  box-shadow: 0 2px 0 rgba(0,0,0,.28);
+  transition: transform .08s ease, box-shadow .08s ease, filter .12s ease;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Accessible focus state */
+.cta-btn:focus-visible{
+  outline: none;
+  box-shadow: var(--focus);
+}
+.cta-btn .cta-label{ max-width: 98%; }
+
+.cta-btn:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+}
+
+.cta-btn:active,
+.cta-btn.clicked{
+  transform: translateY(0);
+  box-shadow: 0 1px 0 rgba(0,0,0,.35);
+}
+
+/* Helper text */
+.cta-help{
+  margin:0;
+  color: var(--muted);
+  font-size: var(--fz-xs);
+  max-width: 240px;
+  text-align:right;
+}
+
+/* Dividers */
+.divider{
+  border: none;
+  height: 1px;
+  background: var(--divider);
+  margin: 16px 0 6px;
+}
+
+/* Image placeholder utility */
+.img-placeholder{
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(0,0,0,0.12));
+  border: 1px dashed rgba(255,255,255,0.25);
+  border-radius: var(--r-sm);
+  display: inline-block;
+  object-fit: cover;
+}
+
+/* Responsive rules */
+@media (min-width: 1440px){
+  :root{ --container-max: 1180px; }
+}
+
+@media (max-width: 1280px){
+  :root{ --container-max: 1080px; }
+}
+
+@media (max-width: 1024px){
+  :root{ --container-max: 960px; }
+}
+
+@media (max-width: 920px){
+  .proto-content{ flex-direction:column; }
+  .proto-cta{ align-items:stretch; }
+  .cta-btn{ width:100%; }
+  .cta-help{ text-align:left; max-width: none; }
+}
+
+@media (max-width: 768px){
+  :root{ --container-pad: 20px; }
+  .header-banner{ padding: 16px 18px; }
+  .banner-text-wrap{ padding: 10px 12px; }
+  .proto-section{ padding: 18px; }
+  .section-inner{ padding: 14px 14px 10px; }
+}
+
+@media (max-width: 480px){
+  :root{ --container-pad: 16px; }
+  .page-title{ margin-bottom: 18px; }
+}
