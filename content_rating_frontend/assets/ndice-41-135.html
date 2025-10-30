@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Índice</title>
+  <link rel="stylesheet" href="ndice-41-135.css"/>
+</head>
+<body>
+  <main id="screen-41-135" class="screen">
+    <!-- Header banner with alert icons and important note -->
+    <section class="header-banner" aria-labelledby="title-index">
+      <h1 id="title-index" class="title">Índice de prototipos</h1>
+
+      <div class="important-row" role="note" aria-label="Importante">
+        <!-- Left alert icon group (vector placeholders; JSON had icon vectors but no explicit image paths) -->
+        <div class="icon alert-icon" aria-hidden="true"></div>
+
+        <div class="important-box">
+          <div class="important-label">Importante</div>
+          <p class="important-text">
+            Los guiones que acompañan los prototipos son sumamente específicos y cualquier otro comportamiento
+            fuera de ese guión no se debe considerar como comportamiento esperado.
+          </p>
+        </div>
+
+        <!-- Right alert icon group -->
+        <div class="icon alert-icon" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- Section 1 -->
+    <section class="proto-section" aria-labelledby="proto-1-title">
+      <div class="section-inner">
+        <h2 id="proto-1-title" class="proto-title">
+          1. Entrada y salida de calificador de contenidos
+        </h2>
+        <div class="proto-content">
+          <div class="proto-text">
+            <p class="block">
+              <strong>Objetivo del prototipo:</strong><br/>
+              Observar el comportamiento de la entrada al Calificador de contenidos desde los créditos,
+              y regresar a la reproducción en pantalla completa.
+            </p>
+            <p class="block">
+              <strong>Teclas para navegar:</strong><br/>
+              ↑ Enter
+            </p>
+            <p class="block">
+              <strong>Guión del prototipo:</strong><br/>
+              Esperar 3 segundos para observar la entrada al Calificador de contenidos.<br/>
+              Subir al botón Me gusta con la tecla (↑).<br/>
+              Subir al reproductor PiP con la tecla (↑).<br/>
+              Salir del Calificador de contenidos y regresar a la reproducción en pantalla completa con la tecla (Enter).
+            </p>
+          </div>
+          <div class="proto-cta">
+            <button class="cta-btn" data-proto="1">
+              Click aquí para iniciar prototipo 1
+            </button>
+            <p class="cta-help">Da click en el botón amarillo para visualizar las interacciones descritas en el guión</p>
+          </div>
+        </div>
+      </div>
+      <hr class="divider"/>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="proto-section" aria-labelledby="proto-2-title">
+      <div class="section-inner">
+        <h2 id="proto-2-title" class="proto-title">
+          2. Navegación por el Calificador de Contenidos
+        </h2>
+        <div class="proto-content">
+          <div class="proto-text">
+            <p class="block">
+              <strong>Objetivo del prototipo:</strong><br/>
+              Navegar por la pantalla del Calificador de Contenidos.
+            </p>
+            <p class="block">
+              <strong>Teclas para navegar:</strong><br/>
+              ↓ ↑ → Enter
+            </p>
+            <p class="block">
+              <strong>Guión del prototipo:</strong><br/>
+              Subir al botón Me gusta con la tecla (↑).<br/>
+              Navegar a la derecha al botón Me encanta con la tecla (→).<br/>
+              Navegar a la derecha al botón No me gusta con la tecla (→).<br/>
+              Subir al reproductor PiP con la tecla (↑).<br/>
+              Bajar al botón Me gusta con la tecla (↓).<br/>
+              Bajar al botón Cerrar con la tecla (↓).<br/>
+              Cerrar el Calificador de contenidos y regresar a la reproducción en pantalla completa con la tecla (Enter).
+            </p>
+          </div>
+          <div class="proto-cta">
+            <button class="cta-btn" data-proto="2">
+              Click aquí para iniciar prototipo 2
+            </button>
+            <p class="cta-help">Da click en el botón amarillo para visualizar las interacciones descritas en el guión</p>
+          </div>
+        </div>
+      </div>
+      <hr class="divider"/>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="proto-section" aria-labelledby="proto-3-title">
+      <div class="section-inner">
+        <h2 id="proto-3-title" class="proto-title">
+          3. Comportamiento de notificación al calificar el contenido.
+        </h2>
+        <div class="proto-content">
+          <div class="proto-text">
+            <p class="block">
+              <strong>Objetivo del prototipo:</strong><br/>
+              Calificar el contenido y observar la notificación.
+            </p>
+            <p class="block">
+              <strong>Teclas para navegar:</strong><br/>
+              ↑ Enter
+            </p>
+            <p class="block">
+              <strong>Guión del prototipo:</strong><br/>
+              Subir al botón Me gusta con la tecla (↑).<br/>
+              Calificar el contenido con Me gusta con la tecla (Enter).<br/>
+              Esperar 6 segundos a que la notificación de feedback desaparezca.<br/>
+              Esperar 4 segundos a que se cierre el panel de calificación automáticamente.
+            </p>
+          </div>
+          <div class="proto-cta">
+            <button class="cta-btn" data-proto="3">
+              Click aquí para iniciar prototipo 3
+            </button>
+            <p class="cta-help">Da click en el botón amarillo para visualizar las interacciones descritas en el guión</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="ndice-41-135.js"></script>
+</body>
+</html>
