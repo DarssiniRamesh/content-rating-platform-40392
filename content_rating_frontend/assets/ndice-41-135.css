@@ -1,0 +1,289 @@
+/* Root custom properties: theme tokens + type scale
+   Keep to cross-browser safe features; provide fallback values where relevant. */
+:root{
+  /* Colors (from JSON + subtle tonal surfaces to match screenshot) */
+  --bg:#39393e; /* color_39393e */
+  --surface:#45454b;
+  --surface-2:#4a4a50;
+  --chip:#ffffff;
+  --chip-text:#1d1d1d;
+  --text:#ffffff;
+  --text-strong:#ffffff;
+  --text-dim:rgba(255,255,255,0.85);
+  --muted:rgba(255,255,255,0.70);
+  --divider:rgba(255,255,255,0.18);
+  --accent:#FFD400;
+  --accent-text:#111;
+
+  /* Type scale (fluid with clamps for stable steps) */
+  --fz-xs: clamp(11px, 0.72vw, 12px);
+  --fz-sm: clamp(12px, 0.8vw, 14px);
+  --fz-md: clamp(14px, 1vw, 16px);
+  --fz-lg: clamp(16px, 1.2vw, 20px);
+  --fz-xl: clamp(24px, 2.4vw, 32px); /* slightly larger to match headline proportions */
+
+  /* Radii + spacing */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 12px;
+
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+
+  /* Container widths (align to requested breakpoints) */
+  --container-max: 1024px; /* default */
+  --container-pad: 24px;
+
+  /* Focus outline */
+  --focus: 0 0 0 3px rgba(255,212,0,0.55);
+}
+
+/* Global reset and typography */
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  background:var(--bg);
+  color:var(--text);
+  /* Robust font stack to avoid blank text if custom font fails */
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", sans-serif;
+  line-height:1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh; /* Prevent collapse if nothing else renders */
+}
+
+/* Screen wrapper approximates Figma canvas viewport */
+.screen{
+  max-width: var(--container-max);
+  margin: 48px auto 96px;
+  padding: var(--container-pad);
+}
+
+/* Page Title (Índice de prototipos) – tuned spacing/letter-spacing */
+.page-title{
+  margin: 0 0 22px 0;              /* aligns with screenshot vertical spacing */
+  text-align:center;
+  font-weight: 800;
+  font-size: var(--fz-xl);          /* clamp to cap on large screens */
+  line-height: 1.15;                /* tighter like Figma headline */
+  letter-spacing: 0.2px;            /* micro tracking from spec */
+}
+
+/* Banner (Frame 1685) */
+.header-banner{
+  display:flex;
+  align-items: center;
+  gap: 18px;
+  background:#3f3f45;
+  border-radius: var(--r-lg);
+  padding: 20px 22px;               /* exact px to lock visual density */
+  box-shadow:
+    0 2px 0 rgba(0,0,0,0.2) inset,
+    0 1px 0 rgba(255,255,255,0.05);
+  margin-bottom: 28px;
+  min-height: 84px;                 /* Prevent collapse even if text wraps */
+}
+
+/* Decorative icon boxes approximating vector instances */
+.alert-icon{
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-md);
+  /* Visible placeholder even if background images fail */
+  background:
+    radial-gradient(circle at 50% 34%, #fff 0 14%, transparent 15% 100%),
+    linear-gradient(#f5a100,#ffd54d);
+  box-shadow:
+    0 0 0 2px rgba(0,0,0,.25) inset,
+    0 4px 10px rgba(0,0,0,.25);
+  border: 1px solid rgba(0,0,0,0.25); /* extra edge for contrast */
+  flex:0 0 auto;
+}
+
+/* Banner text group */
+.banner-text-wrap{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  background:#494950;
+  border-radius: var(--r-md);
+  padding: 12px 14px;
+  flex:1 1 auto;
+  min-height: 44px; /* aligns with icon height for better balance */
+}
+
+.important-chip{
+  background: var(--chip);
+  color: var(--chip-text);
+  font-weight: 800;
+  font-size: var(--fz-xs); /* ~12px large screens */
+  padding: 6px 10px;
+  border-radius: var(--r-sm);
+  line-height:1;
+  white-space:nowrap;
+}
+
+.banner-text{
+  margin:0;
+  color: var(--muted);
+  font-size: var(--fz-sm);  /* ~14px large screens */
+  line-height: 1.35;        /* match Figma paragraph density */
+  letter-spacing: 0.1px;
+}
+
+/* Sections */
+.proto-section{
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  padding: 22px;
+  margin: 18px 0;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset;
+}
+
+.section-inner{
+  /* Add subtle gradient to avoid flat look when images are absent */
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06)) , var(--surface-2);
+  border-radius: var(--r-md);
+  padding: 18px 18px 12px;
+  min-height: 140px; /* Maintain presence even with little text */
+}
+
+/* Section title – heavier and slightly larger */
+.proto-title{
+  margin:0 0 10px 0;
+  font-size: var(--fz-lg); /* ~20px large screens */
+  font-weight: 800;
+  color: var(--text-strong);
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+}
+
+.proto-content{
+  display:flex;
+  gap: 24px;
+  align-items:flex-start;
+  min-height: 120px; /* Ensure CTA sits to the side and layout remains structured */
+}
+
+.proto-text{
+  flex:1 1 auto;
+  color: var(--text-dim);
+  font-size: var(--fz-sm); /* ~14px large screens */
+  line-height: 1.5;
+}
+
+.block{
+  margin: 8px 0 10px;
+}
+
+/* CTA cluster on right (group frames) */
+.proto-cta{
+  flex:0 0 300px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:10px;
+}
+
+/* Button – tuned to look like bold amber Figma CTA */
+.cta-btn{
+  width: 260px;
+  min-height: 56px;
+  background: var(--accent);
+  color: var(--accent-text);
+  border: none;
+  border-radius: var(--r-md);
+  font-weight: 900;
+  font-size: var(--fz-md); /* ~16px large screens */
+  letter-spacing: 0.2px;
+  cursor:pointer;
+  box-shadow: 0 2px 0 rgba(0,0,0,.25);
+  transition: transform .1s ease, box-shadow .1s ease, filter .15s ease;
+  text-align: center;
+  display: inline-flex;            /* Prevent inline whitespace issues */
+  align-items: center;
+  justify-content: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Accessible focus state – visible and high-contrast */
+.cta-btn:focus-visible{
+  outline: none;
+  box-shadow: var(--focus);
+}
+
+.cta-btn:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+}
+
+.cta-btn:active,
+.cta-btn.clicked{
+  transform: translateY(0);
+  box-shadow: 0 1px 0 rgba(0,0,0,.35);
+}
+
+/* Helper text */
+.cta-help{
+  margin:0;
+  color: var(--muted);
+  font-size: var(--fz-xs); /* ~12px large screens */
+  max-width: 260px;
+  text-align:right;
+}
+
+/* Dividers (Line 1/2) */
+.divider{
+  border: none;
+  height: 1px;
+  background: var(--divider);
+  margin: 18px 0 6px;
+}
+
+/* Generic image placeholder class in case figmaimages are referenced
+   but not available locally; apply to <img> elements via JS or HTML if needed */
+.img-placeholder{
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(0,0,0,0.12));
+  border: 1px dashed rgba(255,255,255,0.25);
+  border-radius: var(--r-sm);
+  display: inline-block;      /* Maintain box presence */
+  object-fit: cover;
+}
+
+/* Responsive rules
+   Breakpoints requested: 1440, 1280, 1024, 768, 480 */
+@media (min-width: 1440px){
+  :root{ --container-max: 1180px; }
+}
+
+@media (max-width: 1280px){
+  :root{ --container-max: 1080px; }
+}
+
+@media (max-width: 1024px){
+  :root{ --container-max: 960px; }
+}
+
+@media (max-width: 920px){
+  .proto-content{ flex-direction:column; }
+  .proto-cta{ align-items:stretch; }
+  .cta-help{ text-align:left; }
+}
+
+@media (max-width: 768px){
+  :root{ --container-pad: 20px; }
+  .header-banner{ padding: 16px 18px; }
+  .banner-text-wrap{ padding: 10px 12px; }
+  .proto-section{ padding: 18px; }
+  .section-inner{ padding: 14px 14px 10px; }
+}
+
+@media (max-width: 480px){
+  :root{ --container-pad: 16px; }
+  .page-title{ margin-bottom: 18px; }
+  .cta-btn{ width: 100%; }
+  .cta-help{ max-width: none; }
+}
