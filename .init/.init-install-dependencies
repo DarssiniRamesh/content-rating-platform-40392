@@ -1,0 +1,4 @@
+{
+    "command": "npm install",
+    "working_directory": "/home/kavia/workspace/code-generation/content-rating-platform-40392/content_rating_frontend"
+}
